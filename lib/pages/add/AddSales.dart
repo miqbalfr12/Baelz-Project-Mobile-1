@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:uas/modal/ModalContent.dart';
 
-class AddSeller extends StatefulWidget {
-  const AddSeller({super.key});
+class AddSales extends StatefulWidget {
+  const AddSales({super.key});
 
   @override
-  AddSellerState createState() => AddSellerState();
+  AddSalesState createState() => AddSalesState();
 }
 
-class AddSellerState extends State<AddSeller> {
+class AddSalesState extends State<AddSales> {
   final _formKey = GlobalKey<FormState>();
   String _itemName = "";
   int _quantity = 0;
@@ -20,7 +20,7 @@ class AddSellerState extends State<AddSeller> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.amber,
-        title: const Text('Tambah Seller'),
+        title: const Text('Tambah Sales'),
       ),
       backgroundColor: Colors.amber, // Background color of the main Scaffold
       body: Stack(
@@ -36,7 +36,7 @@ class AddSellerState extends State<AddSeller> {
             ),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: formAddSeller(),
+              child: formAddSales(),
             ),
           ),
           Positioned(
@@ -61,7 +61,7 @@ class AddSellerState extends State<AddSeller> {
                           context: context,
                           backgroundColor: Colors.amber,
                           builder: (BuildContext context) {
-                            return ModalContent(title: 'Add Seller', obj: {
+                            return ModalContent(title: 'Add Sales', obj: {
                               "itemName": _itemName,
                               "quantity": _quantity,
                               "attr": _attr
@@ -118,7 +118,7 @@ class AddSellerState extends State<AddSeller> {
     );
   }
 
-  Form formAddSeller() {
+  Form formAddSales() {
     return Form(
       key: _formKey,
       child: Column(

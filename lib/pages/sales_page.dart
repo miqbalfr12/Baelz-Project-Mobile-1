@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SellerPage extends StatelessWidget {
-  const SellerPage({super.key});
+class SalesPage extends StatelessWidget {
+  const SalesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class SellerPage extends StatelessWidget {
           height: 10,
         ),
         Text(
-          "Seller Page!",
+          "Sales Page!",
           style: GoogleFonts.poppins(
               color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
         ),

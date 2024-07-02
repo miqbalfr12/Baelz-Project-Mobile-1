@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import 'package:uas/pages/add/AddProduct.dart';
-import 'package:uas/pages/add/AddSeller.dart';
+import 'package:uas/pages/add/AddSales.dart';
 import 'package:uas/pages/add/AddStock.dart';
 
 import '../pages/pages.dart';
@@ -39,7 +39,7 @@ class _MainWrapperState extends State<MainWrapper> {
     HomePage(),
     ProductPage(),
     NotificationsPage(),
-    SellerPage(),
+    SalesPage(),
   ];
 
   /// on Page Changed
@@ -192,7 +192,7 @@ class _MainWrapperState extends State<MainWrapper> {
                   context,
                   defaultIcon: IconlyLight.user_1,
                   page: 3,
-                  label: "Seller",
+                  label: "Sales",
                   filledIcon: IconlyBold.user_3,
                 ),
               ],
@@ -242,13 +242,13 @@ class _MainWrapperState extends State<MainWrapper> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const AddSeller()),
+                MaterialPageRoute(builder: (context) => const AddSales()),
               );
             },
             shape: const CircleBorder(),
             child: const Icon(Icons.add, color: Colors.amber),
             labelWidget:
-                const Text("Seller", style: TextStyle(color: Colors.white))),
+                const Text("Sales", style: TextStyle(color: Colors.white))),
       ],
       child: const Icon(Icons.add),
     );

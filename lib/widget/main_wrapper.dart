@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import 'package:uas/pages/add/AddProduct.dart';
-import 'package:uas/pages/add/AddSales.dart';
-import 'package:uas/pages/add/AddStock.dart';
+import 'package:uas/pages/add/add_product.dart';
+import 'package:uas/pages/add/add_sales.dart';
+import 'package:uas/pages/add/add_stock.dart';
 
 import '../pages/pages.dart';
 
@@ -38,7 +38,7 @@ class _MainWrapperState extends State<MainWrapper> {
   final List<Widget> topLevelPages = const [
     HomePage(),
     ProductPage(),
-    NotificationsPage(),
+    StocksPage(),
     SalesPage(),
   ];
 

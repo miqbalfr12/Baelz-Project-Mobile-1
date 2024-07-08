@@ -4,10 +4,10 @@ class Product {
   final int price;
   final String attr;
   final int qty;
-  final int weight;
+  final num weight;
   final int createdAt;
   final int updatedAt;
-  final dynamic issuer;
+  final String issuer;
 
   Product(
       {required this.id,
@@ -15,7 +15,7 @@ class Product {
       required this.price,
       required this.attr,
       required this.qty,
-      this.issuer,
+      required this.issuer,
       required this.createdAt,
       required this.updatedAt,
       required this.weight});

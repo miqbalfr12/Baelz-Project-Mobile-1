@@ -3,17 +3,17 @@ class Stock {
   final String name;
   final int qty;
   final String attr;
-  final int weight;
+  final num weight;
   final int createdAt;
   final int updatedAt;
-  final dynamic issuer;
+  final String issuer;
 
   Stock(
       {required this.id,
       required this.name,
       required this.attr,
       required this.qty,
-      this.issuer,
+      required this.issuer,
       required this.createdAt,
       required this.updatedAt,
       required this.weight});

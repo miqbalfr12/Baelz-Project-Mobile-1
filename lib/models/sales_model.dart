@@ -6,14 +6,14 @@ class Sales {
   final String status;
   final int createdAt;
   final int updatedAt;
-  final dynamic issuer;
+  final String issuer;
 
   Sales(
       {required this.id,
       required this.buyer,
       required this.phone,
       required this.date,
-      this.issuer,
+      required this.issuer,
       required this.createdAt,
       required this.updatedAt,
       required this.status});

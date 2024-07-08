@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:uas/modal/ModalContent.dart';
+import 'package:uas/modal/modal_content.dart';
+
+import 'package:image_input/image_input.dart';
 
 class AddProduct extends StatefulWidget {
   const AddProduct({super.key});
@@ -11,8 +13,11 @@ class AddProduct extends StatefulWidget {
 class AddProductState extends State<AddProduct> {
   final _formKey = GlobalKey<FormState>();
   String _itemName = "";
-  int _quantity = 0;
-  String _attr = "";
+  int _itemPrice = 0;
+  int _itemQty = 0;
+  String _itemAttr = "";
+  num _itemWeight = 0;
+  final List<XFile> _imageInputImages = [];
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +32,7 @@ class AddProductState extends State<AddProduct> {
         children: [
           Container(
             width: double.infinity, // Set width to full width available
+            height: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(
               color: Colors.black,
               borderRadius: BorderRadius.only(
@@ -34,9 +40,10 @@ class AddProductState extends State<AddProduct> {
                 topRight: Radius.circular(40),
               ),
             ),
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
                 child: formAddProduct(),
               ),
             ),
@@ -55,18 +62,17 @@ class AddProductState extends State<AddProduct> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
-                        // Handle form submission with _itemName and _quantity
-                        // You can potentially call a function to add stock
-                        print(
-                            "Adding Product for $_itemName with quantity $_quantity and attribute $_attr");
                         showModalBottomSheet(
                           context: context,
                           backgroundColor: Colors.amber,
                           builder: (BuildContext context) {
                             return ModalContent(title: 'Add Product', obj: {
-                              "itemName": _itemName,
-                              "quantity": _quantity,
-                              "attr": _attr
+                              "name": _itemName,
+                              "attr": _itemAttr,
+                              "price": _itemPrice,
+                              "qty": _itemQty,
+                              "weight": _itemWeight,
+                              "image": _imageInputImages
                             });
                           },
                         );
@@ -93,9 +99,6 @@ class AddProductState extends State<AddProduct> {
                   const SizedBox(width: 10),
                   ElevatedButton(
                     onPressed: () {
-                      // Aksi yang dijalankan saat tombol ditekan
-                      print('Tombol 2 ditekan');
-                      // pop the current page
                       Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
@@ -125,6 +128,32 @@ class AddProductState extends State<AddProduct> {
       key: _formKey,
       child: Column(
         children: [
+          ImageInput(
+            images: _imageInputImages,
+            imageContainerDecoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.amber,
+                width: 2.0,
+              ),
+            ),
+            addImageContainerDecoration: BoxDecoration(
+              color: Colors.amber,
+              borderRadius: BorderRadius.circular(100.0),
+            ),
+            allowEdit: true,
+            allowMaxImage: 1,
+            onImageSelected: (image) {
+              setState(() {
+                _imageInputImages.add(image);
+              });
+            },
+            onImageRemoved: (image, index) {
+              setState(() {
+                _imageInputImages.remove(image);
+              });
+            },
+          ),
+          const SizedBox(height: 10),
           TextFormField(
             style: TextStyle(color: Colors.grey.shade700),
             keyboardType: TextInputType.text,
@@ -132,7 +161,7 @@ class AddProductState extends State<AddProduct> {
             decoration: InputDecoration(
               labelText: "Nama Barang",
               prefixIcon: const Icon(
-                Icons.inventory, // Change to your desired icon
+                Icons.shopping_bag_outlined, // Change to your desired icon
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -166,9 +195,9 @@ class AddProductState extends State<AddProduct> {
             keyboardType: TextInputType.number,
             cursorColor: Colors.amber,
             decoration: InputDecoration(
-              labelText: "Jumlah Stock",
+              labelText: "Price",
               prefixIcon: const Icon(
-                Icons.calculate, // Change to your desired icon
+                Icons.monetization_on_rounded, // Change to your desired icon
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -190,11 +219,47 @@ class AddProductState extends State<AddProduct> {
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return "Jumlah Stock tidak boleh kosong";
+                return "Price tidak boleh kosong";
               }
               return null;
             },
-            onSaved: (value) => _quantity = int.parse(value!),
+            onSaved: (value) => _itemPrice = int.parse(value!),
+          ),
+          const SizedBox(height: 10),
+          TextFormField(
+            style: TextStyle(color: Colors.grey.shade700),
+            keyboardType: TextInputType.number,
+            cursorColor: Colors.amber,
+            decoration: InputDecoration(
+              labelText: "Quantity",
+              prefixIcon: const Icon(
+                Icons.view_in_ar_outlined, // Change to your desired icon
+              ),
+              focusColor: Colors.amber,
+              prefixIconColor: Colors.grey.shade700,
+              floatingLabelStyle: const TextStyle(
+                color: Colors.amber,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(100.0),
+                borderSide: const BorderSide(
+                  color: Colors.amber, // Set border color
+                ),
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderSide: const BorderSide(
+                  color: Colors.amber, // Set border color
+                ),
+              ),
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Quantity tidak boleh kosong";
+              }
+              return null;
+            },
+            onSaved: (value) => _itemQty = int.parse(value!),
           ),
           const SizedBox(height: 10),
           TextFormField(
@@ -202,9 +267,9 @@ class AddProductState extends State<AddProduct> {
             keyboardType: TextInputType.text,
             cursorColor: Colors.amber,
             decoration: InputDecoration(
-              labelText: "Atribut Jumlah Stock",
+              labelText: "Attribute",
               prefixIcon: const Icon(
-                Icons.scale, // Change to your desired icon
+                Icons.category_outlined, // Change to your desired icon
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -226,11 +291,47 @@ class AddProductState extends State<AddProduct> {
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return "Atribut Jumlah Stock tidak boleh kosong";
+                return "Attribute tidak boleh kosong";
               }
               return null;
             },
-            onSaved: (value) => _attr = value!,
+            onSaved: (value) => _itemAttr = value!,
+          ),
+          const SizedBox(height: 10),
+          TextFormField(
+            style: TextStyle(color: Colors.grey.shade700),
+            keyboardType: TextInputType.number,
+            cursorColor: Colors.amber,
+            decoration: InputDecoration(
+              labelText: "Weight",
+              prefixIcon: const Icon(
+                Icons.scale_rounded, // Change to your desired icon
+              ),
+              focusColor: Colors.amber,
+              prefixIconColor: Colors.grey.shade700,
+              floatingLabelStyle: const TextStyle(
+                color: Colors.amber,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(100.0),
+                borderSide: const BorderSide(
+                  color: Colors.amber, // Set border color
+                ),
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderSide: const BorderSide(
+                  color: Colors.amber, // Set border color
+                ),
+              ),
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Weight tidak boleh kosong";
+              }
+              return null;
+            },
+            onSaved: (value) => _itemWeight = num.parse(value!),
           ),
         ],
       ),

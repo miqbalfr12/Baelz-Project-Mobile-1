@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uas/modal/ModalContent.dart';
+import 'package:uas/modal/modal_content.dart';
 
 class AddSales extends StatefulWidget {
   const AddSales({super.key});
@@ -10,9 +10,43 @@ class AddSales extends StatefulWidget {
 
 class AddSalesState extends State<AddSales> {
   final _formKey = GlobalKey<FormState>();
-  String _itemName = "";
-  int _quantity = 0;
-  String _attr = "";
+  String _itemBuyer = "";
+  String _itemStatus = "";
+  String _itemPhone = "";
+  String _itemDate = "";
+  DateTime? _selectedDate;
+  String? _selectedStatus;
+  final List<String> _statusOptions = [
+    'Done',
+    'Cicil',
+    'Belum Bayar',
+    'Pending',
+    'Cancel'
+  ];
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate ?? DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != _selectedDate) {
+      setState(() {
+        _selectedDate = picked;
+        _itemDate = "${picked.toLocal()}".split(' ')[0]; // Format as yyyy-mm-dd
+        _dateController.text = _itemDate;
+      });
+    }
+  }
+
+  TextEditingController _dateController = TextEditingController();
+
+  @override
+  void dispose() {
+    _dateController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +61,7 @@ class AddSalesState extends State<AddSales> {
         children: [
           Container(
             width: double.infinity, // Set width to full width available
+            height: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(
               color: Colors.black,
               borderRadius: BorderRadius.only(
@@ -34,11 +69,13 @@ class AddSalesState extends State<AddSales> {
                 topRight: Radius.circular(40),
               ),
             ),
-            child: SingleChildScrollView(
-                child: Padding(
+            child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: formAddSales(),
-            )),
+              child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: formAddSales(),
+              ),
+            ),
           ),
           Positioned(
             left: 0,
@@ -54,18 +91,25 @@ class AddSalesState extends State<AddSales> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
-                        // Handle form submission with _itemName and _quantity
+                        // Handle form submission with _itemBuyer and _itemDate
                         // You can potentially call a function to add stock
                         print(
-                            "Adding Product for $_itemName with quantity $_quantity and attribute $_attr");
+                            "Adding Sales for $_itemBuyer with stock $_itemDate ");
+                        print({
+                          "buyer": _itemBuyer,
+                          "phone": _itemPhone,
+                          "status": _itemStatus,
+                          "date": _itemDate
+                        });
                         showModalBottomSheet(
                           context: context,
                           backgroundColor: Colors.amber,
                           builder: (BuildContext context) {
                             return ModalContent(title: 'Add Sales', obj: {
-                              "itemName": _itemName,
-                              "quantity": _quantity,
-                              "attr": _attr
+                              "buyer": _itemBuyer,
+                              "phone": _itemPhone,
+                              "status": _itemStatus,
+                              "date": _itemDate
                             });
                           },
                         );
@@ -92,9 +136,6 @@ class AddSalesState extends State<AddSales> {
                   const SizedBox(width: 10),
                   ElevatedButton(
                     onPressed: () {
-                      // Aksi yang dijalankan saat tombol ditekan
-                      print('Tombol 2 ditekan');
-                      // pop the current page
                       Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
@@ -129,9 +170,9 @@ class AddSalesState extends State<AddSales> {
             keyboardType: TextInputType.text,
             cursorColor: Colors.amber,
             decoration: InputDecoration(
-              labelText: "Nama Barang",
+              labelText: "Nama Buyer",
               prefixIcon: const Icon(
-                Icons.inventory, // Change to your desired icon
+                Icons.assignment_ind_rounded, // Change to your desired icon
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -153,11 +194,11 @@ class AddSalesState extends State<AddSales> {
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return "Nama barang tidak boleh kosong";
+                return "Nama Buyer tidak boleh kosong";
               }
               return null;
             },
-            onSaved: (value) => _itemName = value!,
+            onSaved: (value) => _itemBuyer = value!,
           ),
           const SizedBox(height: 10),
           TextFormField(
@@ -165,9 +206,9 @@ class AddSalesState extends State<AddSales> {
             keyboardType: TextInputType.number,
             cursorColor: Colors.amber,
             decoration: InputDecoration(
-              labelText: "Jumlah Stock",
+              labelText: "Nomor Buyer",
               prefixIcon: const Icon(
-                Icons.calculate, // Change to your desired icon
+                Icons.phone, // Change to your desired icon
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -189,21 +230,69 @@ class AddSalesState extends State<AddSales> {
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return "Jumlah Stock tidak boleh kosong";
+                return "Nomor buyer tidak boleh kosong";
               }
               return null;
             },
-            onSaved: (value) => _quantity = int.parse(value!),
+            onSaved: (value) => _itemPhone = value!,
+          ),
+          const SizedBox(height: 10),
+          DropdownButtonFormField<String>(
+            value: _selectedStatus,
+            style: TextStyle(color: Colors.grey.shade700),
+            decoration: InputDecoration(
+              labelText: "Status",
+              prefixIcon: const Icon(
+                Icons.description, // Change to your desired icon
+              ),
+              focusColor: Colors.amber,
+              prefixIconColor: Colors.grey.shade700,
+              floatingLabelStyle: const TextStyle(
+                color: Colors.amber,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(100.0),
+                borderSide: const BorderSide(
+                  color: Colors.amber, // Set border color
+                ),
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderSide: const BorderSide(
+                  color: Colors.amber, // Set border color
+                ),
+              ),
+            ),
+            items: _statusOptions.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Center(child: Text(value)),
+              );
+            }).toList(),
+            onChanged: (String? newValue) {
+              setState(() {
+                _selectedStatus = newValue;
+              });
+            },
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Status tidak boleh kosong";
+              }
+              return null;
+            },
+            onSaved: (value) => _itemStatus = value!,
           ),
           const SizedBox(height: 10),
           TextFormField(
+            controller: _dateController,
             style: TextStyle(color: Colors.grey.shade700),
-            keyboardType: TextInputType.text,
+            readOnly: true, // Prevent keyboard from appearing
+            onTap: () => _selectDate(context),
             cursorColor: Colors.amber,
             decoration: InputDecoration(
-              labelText: "Atribut Jumlah Stock",
+              labelText: "Tanggal",
               prefixIcon: const Icon(
-                Icons.scale, // Change to your desired icon
+                Icons.date_range_rounded, // Change to your desired icon
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -225,11 +314,11 @@ class AddSalesState extends State<AddSales> {
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return "Atribut Jumlah Stock tidak boleh kosong";
+                return "Tanggal tidak boleh kosong";
               }
               return null;
             },
-            onSaved: (value) => _attr = value!,
+            onSaved: (value) => _itemDate = value!,
           ),
         ],
       ),

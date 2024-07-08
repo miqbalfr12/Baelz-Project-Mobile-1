@@ -1,8 +1,12 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:uas/models/sales_model.dart';
 import 'package:uas/models/stock_model.dart';
 import 'package:uas/models/product_model.dart';
+
+import 'package:image_picker/image_picker.dart';
+import 'package:http_parser/http_parser.dart';
 
 class ApiService {
   static const String baseUrl = 'https://api.kartel.dev';
@@ -13,7 +17,7 @@ class ApiService {
       List<dynamic> data = json.decode(response.body);
       return data
           .map((user) => Product.fromJson(user))
-          .where((user) => user.issuer == "MIqbalFR12")
+          // .where((user) => user.issuer == "MIqbalFR12")
           .toList();
     } else {
       throw Exception('Failed to load products');
@@ -26,7 +30,7 @@ class ApiService {
       List<dynamic> data = json.decode(response.body);
       return data
           .map((user) => Stock.fromJson(user))
-          .where((user) => user.issuer == "MIqbalFR12")
+          // .where((user) => user.issuer == "MIqbalFR12")
           .toList();
     } else {
       throw Exception('Failed to load stocks');
@@ -39,7 +43,7 @@ class ApiService {
       List<dynamic> data = json.decode(response.body);
       return data
           .map((user) => Sales.fromJson(user))
-          .where((user) => user.issuer == "MIqbalFR12")
+          // .where((user) => user.issuer == "admin")
           .toList();
     } else {
       throw Exception('Failed to load sales');
@@ -101,7 +105,7 @@ class ApiService {
   }
 
   Future<http.Response> editProduct(String name, int price, int qty,
-      String attr, int weight, String id) async {
+      String attr, num weight, String id, List<XFile> image) async {
     final response = await http.put(
       Uri.parse('$baseUrl/products/$id'),
       body: json.encode({
@@ -110,10 +114,38 @@ class ApiService {
         'qty': qty,
         'attr': attr,
         'weight': weight,
-        "issuer": 'Phadil'
+        "issuer": 'MIqbalFR12'
       }),
       headers: {'Content-Type': 'application/json'},
     );
+
+    if (image.isNotEmpty) {
+      print(image[0]);
+
+      final File imageFile = File(image[0].path);
+
+      var request = http.MultipartRequest(
+        'POST',
+        Uri.parse('$baseUrl/products/$id/image'),
+      );
+      request.files.add(
+        await http.MultipartFile.fromPath(
+          'image',
+          imageFile.path,
+          contentType: MediaType('image', 'png'), // Sesuaikan jika bukan jpeg
+        ),
+      );
+      request.headers.addAll({
+        'Content-Type': 'multipart/form-data',
+      });
+
+      var response2 = await request.send();
+      print(response2.statusCode);
+      if (response2.statusCode != 201) {
+        throw Exception('Failed to create product');
+      }
+      return response;
+    }
 
     if (response.statusCode != 200) {
       throw Exception('Failed to create product');
@@ -122,8 +154,8 @@ class ApiService {
     return response;
   }
 
-  Future<http.Response> editStock(
-      String name, int qty, String attr, int weight, String id) async {
+  Future<http.Response> editStock(String name, int qty, String attr, num weight,
+      String id, List<XFile> image) async {
     final response = await http.put(
       Uri.parse('$baseUrl/stocks/$id'),
       body: json.encode({
@@ -135,6 +167,34 @@ class ApiService {
       }),
       headers: {'Content-Type': 'application/json'},
     );
+
+    if (image.isNotEmpty) {
+      print(image[0]);
+
+      final File imageFile = File(image[0].path);
+
+      var request = http.MultipartRequest(
+        'POST',
+        Uri.parse('$baseUrl/stocks/$id/image'),
+      );
+      request.files.add(
+        await http.MultipartFile.fromPath(
+          'image',
+          imageFile.path,
+          contentType: MediaType('image', 'png'), // Sesuaikan jika bukan jpeg
+        ),
+      );
+      request.headers.addAll({
+        'Content-Type': 'multipart/form-data',
+      });
+
+      var response2 = await request.send();
+      print(response2.statusCode);
+      if (response2.statusCode != 201) {
+        throw Exception('Failed to upload image');
+      }
+      return response;
+    }
 
     if (response.statusCode != 200) {
       throw Exception('Failed to create stock');
@@ -152,7 +212,7 @@ class ApiService {
         'phone': phone,
         'date': date,
         'status': status,
-        "issuer": 'Phadil'
+        "issuer": 'MIqbalFR12'
       }),
       headers: {'Content-Type': 'application/json'},
     );
@@ -164,8 +224,8 @@ class ApiService {
     return response;
   }
 
-  Future<http.Response> createProduct(
-      String name, int price, int qty, String attr, int weight) async {
+  Future<http.Response> createProduct(String name, int price, int qty,
+      String attr, num weight, List<XFile> image) async {
     final response = await http.post(
       Uri.parse('$baseUrl/products'),
       body: json.encode({
@@ -174,10 +234,41 @@ class ApiService {
         'qty': qty,
         'attr': attr,
         'weight': weight,
-        "issuer": 'Phadil'
+        "issuer": 'MIqbalFR12'
       }),
       headers: {'Content-Type': 'application/json'},
     );
+
+    if (response.statusCode == 201) {
+      if (image.isNotEmpty) {
+        print(image[0]);
+
+        final File imageFile = File(image[0].path);
+
+        var request = http.MultipartRequest(
+          'POST',
+          Uri.parse(
+              '$baseUrl/products/${json.decode(response.body)['id']}/image'),
+        );
+        request.files.add(
+          await http.MultipartFile.fromPath(
+            'image',
+            imageFile.path,
+            contentType: MediaType('image', 'png'), // Sesuaikan jika bukan jpeg
+          ),
+        );
+        request.headers.addAll({
+          'Content-Type': 'multipart/form-data',
+        });
+
+        var response2 = await request.send();
+        print(response2.statusCode);
+        if (response2.statusCode != 201) {
+          throw Exception('Failed to create product');
+        }
+        return response;
+      }
+    }
 
     if (response.statusCode != 201) {
       throw Exception('Failed to create product');
@@ -187,7 +278,7 @@ class ApiService {
   }
 
   Future<http.Response> createStock(
-      String name, int qty, String attr, int weight) async {
+      String name, int qty, String attr, num weight, List<XFile> image) async {
     final response = await http.post(
       Uri.parse('$baseUrl/stocks'),
       body: json.encode({
@@ -195,10 +286,41 @@ class ApiService {
         'qty': qty,
         'attr': attr,
         'weight': weight,
-        "issuer": 'Phadil'
+        "issuer": 'MIqbalFR12'
       }),
       headers: {'Content-Type': 'application/json'},
     );
+
+    if (response.statusCode == 201) {
+      if (image.isNotEmpty) {
+        print(image[0]);
+
+        final File imageFile = File(image[0].path);
+
+        var request = http.MultipartRequest(
+          'POST',
+          Uri.parse(
+              '$baseUrl/stocks/${json.decode(response.body)['id']}/image'),
+        );
+        request.files.add(
+          await http.MultipartFile.fromPath(
+            'image',
+            imageFile.path,
+            contentType: MediaType('image', 'png'), // Sesuaikan jika bukan jpeg
+          ),
+        );
+        request.headers.addAll({
+          'Content-Type': 'multipart/form-data',
+        });
+
+        var response2 = await request.send();
+        print(response2.statusCode);
+        if (response2.statusCode != 201) {
+          throw Exception('Failed to create stock');
+        }
+        return response;
+      }
+    }
 
     if (response.statusCode != 201) {
       throw Exception('Failed to create stock');
@@ -216,7 +338,7 @@ class ApiService {
         'phone': phone,
         'date': date,
         'status': status,
-        "issuer": 'Phadil'
+        "issuer": 'MIqbalFR12'
       }),
       headers: {'Content-Type': 'application/json'},
     );

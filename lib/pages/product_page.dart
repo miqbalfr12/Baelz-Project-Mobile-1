@@ -81,7 +81,9 @@ class _ProductPageState extends State<ProductPage> {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
+    return Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      body: RefreshIndicator(
         onRefresh: _fetchProducts,
         backgroundColor: Colors.grey.shade600,
         color: Colors.amber,
@@ -90,321 +92,318 @@ class _ProductPageState extends State<ProductPage> {
                 child: CircularProgressIndicator(
                 color: Colors.amber,
               ))
-            : Scaffold(
-                backgroundColor: Colors.black,
-                body: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                        child: Container(
-                          height: 100,
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(10)),
-                            color: Colors.grey.shade800,
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          child: Row(
-                            children: [
-                              Icon(
-                                CupertinoIcons.bag,
-                                color: Colors.grey.shade600,
-                                size: 80,
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Expanded(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "Product Page!",
-                                      style: GoogleFonts.poppins(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    const SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Menampilkan List Product",
-                                      textAlign: TextAlign.center,
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.grey.shade600,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+            : SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                          color: Colors.grey.shade800,
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
                         child: Row(
                           children: [
+                            Icon(
+                              CupertinoIcons.bag,
+                              color: Colors.grey.shade600,
+                              size: 80,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
                             Expanded(
-                              child: SizedBox(
-                                height: 40,
-                                child: TextField(
-                                  cursorColor: Colors.amber,
-                                  style: GoogleFonts.poppins(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Product Page!",
+                                    style: GoogleFonts.poppins(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
                                   ),
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.grey.shade800,
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 10),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide.none,
-                                    ),
-                                    hintText: "Search Product",
-                                    hintStyle: GoogleFonts.poppins(
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    "Menampilkan List Product",
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.poppins(
                                       color: Colors.grey.shade600,
                                       fontSize: 18,
                                       fontWeight: FontWeight.w500,
                                     ),
-                                    prefixIcon: Icon(
-                                      CupertinoIcons.search,
-                                      color: Colors.grey.shade600,
-                                      size: 20,
-                                    ),
                                   ),
-                                  onChanged: (value) {
-                                    _searchProduct(value);
-                                  },
-                                ),
+                                ],
                               ),
-                            ),
-                            const SizedBox(width: 10),
-                            SizedBox(
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: SizedBox(
                               height: 40,
-                              child: DropdownButton<String>(
-                                value: selectedIssuer,
-                                hint: Text(
-                                  'Filter by Issuer',
-                                  style: GoogleFonts.poppins(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                dropdownColor: Colors.grey.shade800,
-                                iconEnabledColor: Colors.amber,
+                              child: TextField(
+                                cursorColor: Colors.amber,
                                 style: GoogleFonts.poppins(
                                   color: Colors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500,
                                 ),
-                                underline: Container(
-                                  height: 2,
-                                  color: Colors.amber,
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Colors.grey.shade800,
+                                  contentPadding:
+                                      const EdgeInsets.symmetric(vertical: 10),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide.none,
+                                  ),
+                                  hintText: "Search Product",
+                                  hintStyle: GoogleFonts.poppins(
+                                    color: Colors.grey.shade600,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  prefixIcon: Icon(
+                                    CupertinoIcons.search,
+                                    color: Colors.grey.shade600,
+                                    size: 20,
+                                  ),
                                 ),
-                                onChanged: (String? newValue) {
-                                  _filterProductsByIssuer(newValue);
+                                onChanged: (value) {
+                                  _searchProduct(value);
                                 },
-                                items: issuers.map<DropdownMenuItem<String>>(
-                                    (String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                        itemCount: products.length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            margin: const EdgeInsets.fromLTRB(20, 0, 20, 10),
-                            decoration: BoxDecoration(
-                              color: Colors.grey.shade600,
-                              borderRadius: BorderRadius.circular(10),
+                          ),
+                          const SizedBox(width: 10),
+                          SizedBox(
+                            height: 40,
+                            child: DropdownButton<String>(
+                              value: selectedIssuer,
+                              hint: Text(
+                                'Filter by Issuer',
+                                style: GoogleFonts.poppins(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              dropdownColor: Colors.grey.shade800,
+                              iconEnabledColor: Colors.amber,
+                              style: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              underline: Container(
+                                height: 2,
+                                color: Colors.amber,
+                              ),
+                              onChanged: (String? newValue) {
+                                _filterProductsByIssuer(newValue);
+                              },
+                              items: issuers.map<DropdownMenuItem<String>>(
+                                  (String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    previewImage(
-                                      context,
-                                      index,
-                                      products,
-                                    ).then((value) => {
-                                          _fetchProducts(),
-                                          _filterProductsByIssuer(null)
-                                        });
-                                  },
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 10, horizontal: 10),
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.shade800,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          width: 50,
-                                          height: 50,
+                          ),
+                        ],
+                      ),
+                    ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      itemCount: products.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade600,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  previewImage(
+                                    context,
+                                    index,
+                                    products,
+                                  ).then((value) => {
+                                        _fetchProducts(),
+                                        _filterProductsByIssuer(null)
+                                      });
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 10),
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.shade800,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 50,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          color: Colors.amber,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: Image.network(
+                                            'https://api.kartel.dev/products/${products[index].id}/image',
+                                            fit: BoxFit.cover,
+                                            errorBuilder:
+                                                (context, error, stackTrace) {
+                                              return Center(
+                                                child: Icon(
+                                                  Icons.image_not_supported,
+                                                  color: Colors.grey.shade700,
+                                                ),
+                                              );
+                                            },
+                                            loadingBuilder:
+                                                (context, child, progress) {
+                                              if (progress == null) {
+                                                return child;
+                                              } else {
+                                                return const Center(
+                                                  child:
+                                                      CircularProgressIndicator(),
+                                                );
+                                              }
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 10),
+                                      Expanded(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                SizedBox(
+                                                  width: 150,
+                                                  child: Text(
+                                                    products[index].name,
+                                                    style: GoogleFonts.poppins(
+                                                      color: Colors.white,
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    softWrap: true,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  "${products[index].weight} kg x ${products[index].qty} ${products[index].attr}",
+                                                  style: GoogleFonts.poppins(
+                                                    fontSize: 14,
+                                                    color: Colors.grey,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailProduct(
+                                                id: products[index].id,
+                                              ),
+                                            ),
+                                          ).then((value) => {
+                                                _fetchProducts(),
+                                                _filterProductsByIssuer(null)
+                                              });
+                                        },
+                                        child: Container(
+                                          width: 80,
+                                          height: 30,
                                           decoration: BoxDecoration(
-                                            color: Colors.amber,
+                                            color: Colors.green.shade800,
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                           ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(4.0),
-                                            child: Image.network(
-                                              'https://api.kartel.dev/products/${products[index].id}/image',
-                                              fit: BoxFit.cover,
-                                              errorBuilder:
-                                                  (context, error, stackTrace) {
-                                                return Center(
-                                                  child: Icon(
-                                                    Icons.image_not_supported,
-                                                    color: Colors.grey.shade700,
-                                                  ),
-                                                );
-                                              },
-                                              loadingBuilder:
-                                                  (context, child, progress) {
-                                                if (progress == null) {
-                                                  return child;
-                                                } else {
-                                                  return const Center(
-                                                    child:
-                                                        CircularProgressIndicator(),
-                                                  );
-                                                }
-                                              },
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(width: 10),
-                                        Expanded(
-                                          child: Row(
+                                          child: const Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.center,
                                             children: [
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  SizedBox(
-                                                    width: 150,
-                                                    child: Text(
-                                                      products[index].name,
-                                                      style:
-                                                          GoogleFonts.poppins(
-                                                        color: Colors.white,
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      softWrap: true,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    "${products[index].weight} kg x ${products[index].qty} ${products[index].attr}",
-                                                    style: GoogleFonts.poppins(
-                                                      fontSize: 14,
-                                                      color: Colors.grey,
-                                                    ),
-                                                  ),
-                                                ],
+                                              Text(
+                                                "Detail",
+                                                style: TextStyle(
+                                                    color: Colors.white),
                                               ),
                                             ],
                                           ),
                                         ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    DetailProduct(
-                                                  id: products[index].id,
-                                                ),
-                                              ),
-                                            ).then((value) => {
-                                                  _fetchProducts(),
-                                                  _filterProductsByIssuer(null)
-                                                });
-                                          },
-                                          child: Container(
-                                            width: 80,
-                                            height: 30,
-                                            decoration: BoxDecoration(
-                                              color: Colors.green.shade800,
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                            ),
-                                            child: const Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  "Detail",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'Price: ${currencyFormatter.format(products[index].price)}',
-                                          style: GoogleFonts.poppins(
-                                              color: Colors.white,
-                                              fontSize: 16),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Text(
-                                        products[index].issuer,
-                                        style: GoogleFonts.poppins(
-                                            color: Colors.white, fontSize: 16),
-                                      ),
+                                      )
                                     ],
                                   ),
                                 ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        'Price: ${currencyFormatter.format(products[index].price)}',
+                                        style: GoogleFonts.poppins(
+                                            color: Colors.white, fontSize: 16),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Text(
+                                      products[index].issuer,
+                                      style: GoogleFonts.poppins(
+                                          color: Colors.white, fontSize: 16),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
-              ));
+              ),
+      ),
+    );
   }
 }

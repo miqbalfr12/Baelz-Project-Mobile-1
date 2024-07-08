@@ -80,19 +80,19 @@ class _SalesPageState extends State<SalesPage> {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
-        onRefresh: _fetchSales,
-        backgroundColor: Colors.grey.shade600,
-        color: Colors.amber,
-        child: isLoading
-            ? const Center(
-                child: CircularProgressIndicator(
-                color: Colors.amber,
-              ))
-            : Scaffold(
-                backgroundColor: Colors.black,
-                body: SingleChildScrollView(
-                    child: Column(
+    return Scaffold(
+        backgroundColor: Colors.grey.shade900,
+        body: RefreshIndicator(
+          onRefresh: _fetchSales,
+          backgroundColor: Colors.grey.shade600,
+          color: Colors.amber,
+          child: isLoading
+              ? const Center(
+                  child: CircularProgressIndicator(
+                  color: Colors.amber,
+                ))
+              : SingleChildScrollView(
+                  child: Column(
                   children: [
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
@@ -329,6 +329,7 @@ class _SalesPageState extends State<SalesPage> {
                       },
                     ),
                   ],
-                ))));
+                )),
+        ));
   }
 }

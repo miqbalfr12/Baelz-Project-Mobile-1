@@ -34,14 +34,6 @@ class _MainWrapperState extends State<MainWrapper> {
     super.dispose();
   }
 
-  /// Top Level Pages
-  final List<Widget> topLevelPages = const [
-    HomePage(),
-    ProductPage(),
-    StocksPage(),
-    SalesPage(),
-  ];
-
   /// on Page Changed
   void onPageChanged(int page) {
     BlocProvider.of<BottomNavCubit>(context).changeSelectedIndex(page);
@@ -257,9 +249,14 @@ class _MainWrapperState extends State<MainWrapper> {
   // Body - MainWrapper Widget
   PageView _mainWrapperBody() {
     return PageView(
-      onPageChanged: (int page) => onPageChanged(page),
+      onPageChanged: onPageChanged,
       controller: pageController,
-      children: topLevelPages,
+      children: [
+        HomePage(pageController: pageController),
+        const ProductPage(),
+        const StocksPage(),
+        const SalesPage(),
+      ],
     );
   }
 

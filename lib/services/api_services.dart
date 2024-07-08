@@ -350,3 +350,53 @@ class ApiService {
     return response;
   }
 }
+
+class DataFetcher {
+  static const String baseUrl = 'https://api.kartel.dev';
+
+  Future<Map<String, dynamic>> fetchData(String apiUrl) async {
+    try {
+      final response = await http.get(Uri.parse(apiUrl));
+      print(apiUrl);
+      print(response.body);
+      print(response.statusCode);
+      if (response.statusCode == 200) {
+        final jsonData = jsonDecode(response.body);
+        print(jsonData);
+        List<dynamic> issuers =
+            jsonData.map((item) => item['issuer']).toSet().toList();
+        int total = jsonData.length;
+        return {'total': total, 'issuers': issuers.length};
+      } else {
+        throw Exception('Failed to load data');
+      }
+    } catch (e) {
+      throw Exception('Error: $e');
+    }
+  }
+
+  // Method to fetch data from all APIs and combine results
+  Future<List<Map<String, dynamic>>> fetchAllData() async {
+    List<Map<String, dynamic>> results = [];
+    try {
+      // Replace these URLs with your actual API endpoints
+      const apiUrl1 = '$baseUrl/products';
+      const apiUrl2 = '$baseUrl/stocks';
+      const apiUrl3 = '$baseUrl/sales';
+
+      // Fetch data from each API
+      final result1 = await fetchData(apiUrl1);
+      final result2 = await fetchData(apiUrl2);
+      final result3 = await fetchData(apiUrl3);
+
+      // Add each result to the list
+      results.add(result1);
+      results.add(result2);
+      results.add(result3);
+
+      return results;
+    } catch (e) {
+      throw Exception('Error fetching data: $e');
+    }
+  }
+}

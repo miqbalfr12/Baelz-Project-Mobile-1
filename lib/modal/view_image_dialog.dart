@@ -49,7 +49,7 @@ Future<dynamic> previewImage(
                 child: Column(
                   children: [
                     Image.network(
-                      'https://api.kartel.dev/products/${data[index].id}/image',
+                      'https://api.kartel.dev/${data[index] is Product ? 'products' : 'stocks'}/${data[index].id}/image',
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
                         return const Center(

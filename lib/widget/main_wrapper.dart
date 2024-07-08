@@ -56,7 +56,7 @@ class _MainWrapperState extends State<MainWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.grey.shade900,
       body: Column(children: [
         Container(
           padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),

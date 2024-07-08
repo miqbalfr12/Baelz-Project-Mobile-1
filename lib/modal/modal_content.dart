@@ -284,7 +284,7 @@ class _ModalContentState extends State<ModalContent> {
                     ? null
                     : ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
+                          backgroundColor: Colors.grey.shade900,
                         ),
                         onPressed: () {
                           Navigator.pop(context);

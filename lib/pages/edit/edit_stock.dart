@@ -36,9 +36,9 @@ class EditStockState extends State<EditStock> {
           Container(
             width: double.infinity, // Set width to full width available
             height: MediaQuery.of(context).size.height,
-            decoration: const BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+              color: Colors.grey.shade900,
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(40),
                 topRight: Radius.circular(40),
               ),

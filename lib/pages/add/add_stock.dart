@@ -34,10 +34,11 @@ class AddStockState extends State<AddStock> {
                 topRight: Radius.circular(40),
               ),
             ),
-            child: Padding(
+            child: SingleChildScrollView(
+                child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: formAddStock(),
-            ),
+            )),
           ),
           Positioned(
             left: 0,

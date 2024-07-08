@@ -34,9 +34,11 @@ class AddProductState extends State<AddProduct> {
                 topRight: Radius.circular(40),
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: formAddProduct(),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: formAddProduct(),
+              ),
             ),
           ),
           Positioned(

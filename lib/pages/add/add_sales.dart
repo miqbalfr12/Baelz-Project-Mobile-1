@@ -34,10 +34,11 @@ class AddSalesState extends State<AddSales> {
                 topRight: Radius.circular(40),
               ),
             ),
-            child: Padding(
+            child: SingleChildScrollView(
+                child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: formAddSales(),
-            ),
+            )),
           ),
           Positioned(
             left: 0,

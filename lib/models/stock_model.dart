@@ -1,7 +1,7 @@
 class Stock {
   final String id;
   final String name;
-  final int qty;
+  final num qty;
   final String attr;
   final num weight;
   final int createdAt;

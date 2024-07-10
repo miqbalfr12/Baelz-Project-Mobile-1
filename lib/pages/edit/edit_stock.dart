@@ -16,7 +16,7 @@ class EditStock extends StatefulWidget {
 class EditStockState extends State<EditStock> {
   final _formKey = GlobalKey<FormState>();
   String _itemName = "";
-  int _itemQty = 0;
+  num _itemQty = 0;
   String _itemAttr = "";
   num _itemWeight = 0;
   final List<XFile> _imageInputImages = [];
@@ -236,7 +236,7 @@ class EditStockState extends State<EditStock> {
               return null;
             },
             initialValue: widget.stock.qty.toString(),
-            onSaved: (value) => _itemQty = int.parse(value!),
+            onSaved: (value) => _itemQty = num.parse(value!),
           ),
           const SizedBox(height: 10),
           TextFormField(

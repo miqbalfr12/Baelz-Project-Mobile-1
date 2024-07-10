@@ -18,8 +18,8 @@ class DetailProductState extends State<DetailProduct> {
   final ApiService apiService = ApiService();
   final _formKey = GlobalKey<FormState>();
   String _itemName = "";
-  int _itemPrice = 0;
-  int _itemQty = 0;
+  num _itemPrice = 0;
+  num _itemQty = 0;
   int _createdAt = 0;
   int _updatedAt = 0;
   String _itemAttr = "";
@@ -326,7 +326,7 @@ class DetailProductState extends State<DetailProduct> {
               }
               return null;
             },
-            onSaved: (value) => _itemPrice = int.parse(value!),
+            onSaved: (value) => _itemPrice = num.parse(value!),
           ),
           const SizedBox(height: 10),
           TextFormField(
@@ -364,7 +364,7 @@ class DetailProductState extends State<DetailProduct> {
               }
               return null;
             },
-            onSaved: (value) => _itemQty = int.parse(value!),
+            onSaved: (value) => _itemQty = num.parse(value!),
           ),
           const SizedBox(height: 10),
           TextFormField(

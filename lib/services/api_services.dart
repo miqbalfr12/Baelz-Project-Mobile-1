@@ -104,7 +104,7 @@ class ApiService {
     }
   }
 
-  Future<http.Response> editProduct(String name, int price, int qty,
+  Future<http.Response> editProduct(String name, num price, num qty,
       String attr, num weight, String id, List<XFile> image) async {
     final response = await http.put(
       Uri.parse('$baseUrl/products/$id'),
@@ -154,7 +154,7 @@ class ApiService {
     return response;
   }
 
-  Future<http.Response> editStock(String name, int qty, String attr, num weight,
+  Future<http.Response> editStock(String name, num qty, String attr, num weight,
       String id, List<XFile> image) async {
     final response = await http.put(
       Uri.parse('$baseUrl/stocks/$id'),
@@ -224,7 +224,7 @@ class ApiService {
     return response;
   }
 
-  Future<http.Response> createProduct(String name, int price, int qty,
+  Future<http.Response> createProduct(String name, num price, num qty,
       String attr, num weight, List<XFile> image) async {
     final response = await http.post(
       Uri.parse('$baseUrl/products'),
@@ -278,7 +278,7 @@ class ApiService {
   }
 
   Future<http.Response> createStock(
-      String name, int qty, String attr, num weight, List<XFile> image) async {
+      String name, num qty, String attr, num weight, List<XFile> image) async {
     final response = await http.post(
       Uri.parse('$baseUrl/stocks'),
       body: json.encode({

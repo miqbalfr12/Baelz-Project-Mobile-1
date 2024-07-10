@@ -16,8 +16,8 @@ class EditProduct extends StatefulWidget {
 class EditProductState extends State<EditProduct> {
   final _formKey = GlobalKey<FormState>();
   String _itemName = "";
-  int _itemPrice = 0;
-  int _itemQty = 0;
+  num _itemPrice = 0;
+  num _itemQty = 0;
   String _itemAttr = "";
   num _itemWeight = 0;
   final List<XFile> _imageInputImages = [];
@@ -242,7 +242,7 @@ class EditProductState extends State<EditProduct> {
               return null;
             },
             initialValue: widget.product.price.toString(),
-            onSaved: (value) => _itemPrice = int.parse(value!),
+            onSaved: (value) => _itemPrice = num.parse(value!),
           ),
           const SizedBox(height: 10),
           TextFormField(
@@ -279,7 +279,7 @@ class EditProductState extends State<EditProduct> {
               return null;
             },
             initialValue: widget.product.qty.toString(),
-            onSaved: (value) => _itemQty = int.parse(value!),
+            onSaved: (value) => _itemQty = num.parse(value!),
           ),
           const SizedBox(height: 10),
           TextFormField(

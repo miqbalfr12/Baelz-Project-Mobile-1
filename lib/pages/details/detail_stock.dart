@@ -18,7 +18,7 @@ class DetailStockState extends State<DetailStock> {
   final ApiService apiService = ApiService();
   final _formKey = GlobalKey<FormState>();
   String _itemName = "";
-  int _itemQty = 0;
+  num _itemQty = 0;
   int _createdAt = 0;
   int _updatedAt = 0;
   String _itemAttr = "";
@@ -323,7 +323,7 @@ class DetailStockState extends State<DetailStock> {
               }
               return null;
             },
-            onSaved: (value) => _itemQty = int.parse(value!),
+            onSaved: (value) => _itemQty = num.parse(value!),
           ),
           const SizedBox(height: 10),
           TextFormField(

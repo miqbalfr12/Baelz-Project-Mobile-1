@@ -261,7 +261,7 @@ class DetailSalesState extends State<DetailSales> {
             decoration: InputDecoration(
               labelText: "Nama Buyer",
               prefixIcon: const Icon(
-                Icons.assignment_ind_rounded, // Change to your desired icon
+                Icons.assignment_ind_rounded,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -271,13 +271,13 @@ class DetailSalesState extends State<DetailSales> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -299,7 +299,7 @@ class DetailSalesState extends State<DetailSales> {
             decoration: InputDecoration(
               labelText: "Nomor Buyer",
               prefixIcon: const Icon(
-                Icons.phone, // Change to your desired icon
+                Icons.phone,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -309,13 +309,13 @@ class DetailSalesState extends State<DetailSales> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -337,7 +337,7 @@ class DetailSalesState extends State<DetailSales> {
             decoration: InputDecoration(
               labelText: "Status",
               prefixIcon: const Icon(
-                Icons.description, // Change to your desired icon
+                Icons.description,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -347,13 +347,13 @@ class DetailSalesState extends State<DetailSales> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -375,7 +375,7 @@ class DetailSalesState extends State<DetailSales> {
             decoration: InputDecoration(
               labelText: "Status",
               prefixIcon: const Icon(
-                Icons.date_range_rounded, // Change to your desired icon
+                Icons.date_range_rounded,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -385,13 +385,13 @@ class DetailSalesState extends State<DetailSales> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -414,7 +414,7 @@ class DetailSalesState extends State<DetailSales> {
             decoration: InputDecoration(
               labelText: "Created At",
               prefixIcon: const Icon(
-                Icons.create_new_folder_rounded, // Change to your desired icon
+                Icons.create_new_folder_rounded,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -424,13 +424,13 @@ class DetailSalesState extends State<DetailSales> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -453,7 +453,7 @@ class DetailSalesState extends State<DetailSales> {
             decoration: InputDecoration(
               labelText: "Upated At",
               prefixIcon: const Icon(
-                Icons.edit, // Change to your desired icon
+                Icons.edit,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -463,13 +463,13 @@ class DetailSalesState extends State<DetailSales> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -490,7 +490,7 @@ class DetailSalesState extends State<DetailSales> {
             decoration: InputDecoration(
               labelText: "Issuer",
               prefixIcon: const Icon(
-                Icons.assignment_ind_rounded, // Change to your desired icon
+                Icons.assignment_ind_rounded,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -500,13 +500,13 @@ class DetailSalesState extends State<DetailSales> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),

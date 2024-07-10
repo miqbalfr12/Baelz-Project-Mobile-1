@@ -185,8 +185,7 @@ class _StocksPageState extends State<StocksPage> {
                               ),
                             ),
                           ),
-                          const SizedBox(
-                              width: 10), // Spacer antara TextField dan Button
+                          const SizedBox(width: 10),
                           SizedBox(
                             height: 40,
                             child: DropdownButton<String>(
@@ -267,7 +266,6 @@ class _StocksPageState extends State<StocksPage> {
                                             fit: BoxFit.cover,
                                             errorBuilder:
                                                 (context, error, stackTrace) {
-                                              // This widget is shown when the image fails to load
                                               return Center(
                                                 child: Icon(
                                                   Icons

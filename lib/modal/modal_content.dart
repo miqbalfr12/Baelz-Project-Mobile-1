@@ -27,7 +27,7 @@ class _ModalContentState extends State<ModalContent> {
     print('Title: $title');
     print('obj: $obj');
 
-    await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
+    await Future.delayed(const Duration(seconds: 2));
 
     if (mounted) {
       if (title == "Add Product") {
@@ -43,19 +43,19 @@ class _ModalContentState extends State<ModalContent> {
           if (response.statusCode == 201) {
             setState(() {
               isSuccess = true;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           } else {
             setState(() {
               isSuccess = false;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           }
         } catch (e) {
           print('Error: $e');
           setState(() {
             isSuccess = false;
-            isLoading = false; // Assume response status is 200
+            isLoading = false;
           });
         }
       }
@@ -67,19 +67,19 @@ class _ModalContentState extends State<ModalContent> {
           if (response.statusCode == 201) {
             setState(() {
               isSuccess = true;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           } else {
             setState(() {
               isSuccess = false;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           }
         } catch (e) {
           print('Error: $e');
           setState(() {
             isSuccess = false;
-            isLoading = false; // Assume response status is 200
+            isLoading = false;
           });
         }
       }
@@ -91,19 +91,19 @@ class _ModalContentState extends State<ModalContent> {
           if (response.statusCode == 201) {
             setState(() {
               isSuccess = true;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           } else {
             setState(() {
               isSuccess = false;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           }
         } catch (e) {
           print('Error: $e');
           setState(() {
             isSuccess = false;
-            isLoading = false; // Assume response status is 200
+            isLoading = false;
           });
         }
       }
@@ -121,19 +121,19 @@ class _ModalContentState extends State<ModalContent> {
           if (response.statusCode == 200) {
             setState(() {
               isSuccess = true;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           } else {
             setState(() {
               isSuccess = false;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           }
         } catch (e) {
           print('Error: $e');
           setState(() {
             isSuccess = false;
-            isLoading = false; // Assume response status is 200
+            isLoading = false;
           });
         }
       }
@@ -145,19 +145,19 @@ class _ModalContentState extends State<ModalContent> {
           if (response.statusCode == 200) {
             setState(() {
               isSuccess = true;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           } else {
             setState(() {
               isSuccess = false;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           }
         } catch (e) {
           print('Error: $e');
           setState(() {
             isSuccess = false;
-            isLoading = false; // Assume response status is 200
+            isLoading = false;
           });
         }
       }
@@ -169,19 +169,19 @@ class _ModalContentState extends State<ModalContent> {
           if (response.statusCode == 200) {
             setState(() {
               isSuccess = true;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           } else {
             setState(() {
               isSuccess = false;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           }
         } catch (e) {
           print('Error: $e');
           setState(() {
             isSuccess = false;
-            isLoading = false; // Assume response status is 200
+            isLoading = false;
           });
         }
       }
@@ -192,19 +192,19 @@ class _ModalContentState extends State<ModalContent> {
           if (response.statusCode == 204) {
             setState(() {
               isSuccess = true;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           } else {
             setState(() {
               isSuccess = false;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           }
         } catch (e) {
           print('Error: $e');
           setState(() {
             isSuccess = false;
-            isLoading = false; // Assume response status is 200
+            isLoading = false;
           });
         }
       }
@@ -215,19 +215,19 @@ class _ModalContentState extends State<ModalContent> {
           if (response.statusCode == 204) {
             setState(() {
               isSuccess = true;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           } else {
             setState(() {
               isSuccess = false;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           }
         } catch (e) {
           print('Error: $e');
           setState(() {
             isSuccess = false;
-            isLoading = false; // Assume response status is 200
+            isLoading = false;
           });
         }
       }
@@ -238,19 +238,19 @@ class _ModalContentState extends State<ModalContent> {
           if (response.statusCode == 204) {
             setState(() {
               isSuccess = true;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           } else {
             setState(() {
               isSuccess = false;
-              isLoading = false; // Assume response status is 200
+              isLoading = false;
             });
           }
         } catch (e) {
           print('Error: $e');
           setState(() {
             isSuccess = false;
-            isLoading = false; // Assume response status is 200
+            isLoading = false;
           });
         }
       }
@@ -278,8 +278,7 @@ class _ModalContentState extends State<ModalContent> {
                 ),
               ),
               SizedBox(
-                width: MediaQuery.of(context).size.width *
-                    0.8, // 80% of screen width
+                width: MediaQuery.of(context).size.width * 0.8,
                 child: isLoading
                     ? null
                     : ElevatedButton(

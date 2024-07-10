@@ -27,11 +27,11 @@ class AddProductState extends State<AddProduct> {
         backgroundColor: Colors.amber,
         title: const Text('Tambah Product'),
       ),
-      backgroundColor: Colors.amber, // Background color of the main Scaffold
+      backgroundColor: Colors.amber,
       body: Stack(
         children: [
           Container(
-            width: double.infinity, // Set width to full width available
+            width: double.infinity,
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               color: Colors.grey.shade900,
@@ -161,7 +161,7 @@ class AddProductState extends State<AddProduct> {
             decoration: InputDecoration(
               labelText: "Nama Barang",
               prefixIcon: const Icon(
-                Icons.shopping_bag_outlined, // Change to your desired icon
+                Icons.shopping_bag_outlined,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -171,13 +171,13 @@ class AddProductState extends State<AddProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -197,7 +197,7 @@ class AddProductState extends State<AddProduct> {
             decoration: InputDecoration(
               labelText: "Price",
               prefixIcon: const Icon(
-                Icons.monetization_on_rounded, // Change to your desired icon
+                Icons.monetization_on_rounded,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -207,13 +207,13 @@ class AddProductState extends State<AddProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -233,7 +233,7 @@ class AddProductState extends State<AddProduct> {
             decoration: InputDecoration(
               labelText: "Quantity",
               prefixIcon: const Icon(
-                Icons.view_in_ar_outlined, // Change to your desired icon
+                Icons.view_in_ar_outlined,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -243,13 +243,13 @@ class AddProductState extends State<AddProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -269,7 +269,7 @@ class AddProductState extends State<AddProduct> {
             decoration: InputDecoration(
               labelText: "Attribute",
               prefixIcon: const Icon(
-                Icons.category_outlined, // Change to your desired icon
+                Icons.category_outlined,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -279,13 +279,13 @@ class AddProductState extends State<AddProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -305,7 +305,7 @@ class AddProductState extends State<AddProduct> {
             decoration: InputDecoration(
               labelText: "Weight",
               prefixIcon: const Icon(
-                Icons.scale_rounded, // Change to your desired icon
+                Icons.scale_rounded,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -315,13 +315,13 @@ class AddProductState extends State<AddProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),

@@ -172,7 +172,7 @@ class AddSalesState extends State<AddSales> {
             decoration: InputDecoration(
               labelText: "Nama Buyer",
               prefixIcon: const Icon(
-                Icons.assignment_ind_rounded, // Change to your desired icon
+                Icons.assignment_ind_rounded,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -182,13 +182,13 @@ class AddSalesState extends State<AddSales> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -208,7 +208,7 @@ class AddSalesState extends State<AddSales> {
             decoration: InputDecoration(
               labelText: "Nomor Buyer",
               prefixIcon: const Icon(
-                Icons.phone, // Change to your desired icon
+                Icons.phone,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -218,13 +218,13 @@ class AddSalesState extends State<AddSales> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -243,7 +243,7 @@ class AddSalesState extends State<AddSales> {
             decoration: InputDecoration(
               labelText: "Status",
               prefixIcon: const Icon(
-                Icons.description, // Change to your desired icon
+                Icons.description,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -253,13 +253,13 @@ class AddSalesState extends State<AddSales> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -292,7 +292,7 @@ class AddSalesState extends State<AddSales> {
             decoration: InputDecoration(
               labelText: "Tanggal",
               prefixIcon: const Icon(
-                Icons.date_range_rounded, // Change to your desired icon
+                Icons.date_range_rounded,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -302,13 +302,13 @@ class AddSalesState extends State<AddSales> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),

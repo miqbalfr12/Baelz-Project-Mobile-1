@@ -175,7 +175,6 @@ class DetailProductState extends State<DetailProduct> {
                         const SizedBox(width: 16.0),
                         ElevatedButton(
                           onPressed: () {
-                            // push edit page
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -263,7 +262,7 @@ class DetailProductState extends State<DetailProduct> {
             decoration: InputDecoration(
               labelText: "Nama Barang",
               prefixIcon: const Icon(
-                Icons.shopping_bag_outlined, // Change to your desired icon
+                Icons.shopping_bag_outlined,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -273,13 +272,13 @@ class DetailProductState extends State<DetailProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -301,7 +300,7 @@ class DetailProductState extends State<DetailProduct> {
             decoration: InputDecoration(
               labelText: "Price",
               prefixIcon: const Icon(
-                Icons.monetization_on_rounded, // Change to your desired icon
+                Icons.monetization_on_rounded,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -311,13 +310,13 @@ class DetailProductState extends State<DetailProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -339,7 +338,7 @@ class DetailProductState extends State<DetailProduct> {
             decoration: InputDecoration(
               labelText: "Quantity",
               prefixIcon: const Icon(
-                Icons.view_in_ar_outlined, // Change to your desired icon
+                Icons.view_in_ar_outlined,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -349,13 +348,13 @@ class DetailProductState extends State<DetailProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -377,7 +376,7 @@ class DetailProductState extends State<DetailProduct> {
             decoration: InputDecoration(
               labelText: "Attribute",
               prefixIcon: const Icon(
-                Icons.category_outlined, // Change to your desired icon
+                Icons.category_outlined,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -387,13 +386,13 @@ class DetailProductState extends State<DetailProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -415,7 +414,7 @@ class DetailProductState extends State<DetailProduct> {
             decoration: InputDecoration(
               labelText: "Weight",
               prefixIcon: const Icon(
-                Icons.scale_rounded, // Change to your desired icon
+                Icons.scale_rounded,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -425,13 +424,13 @@ class DetailProductState extends State<DetailProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -454,7 +453,7 @@ class DetailProductState extends State<DetailProduct> {
             decoration: InputDecoration(
               labelText: "Created At",
               prefixIcon: const Icon(
-                Icons.create_new_folder_rounded, // Change to your desired icon
+                Icons.create_new_folder_rounded,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -464,13 +463,13 @@ class DetailProductState extends State<DetailProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -493,7 +492,7 @@ class DetailProductState extends State<DetailProduct> {
             decoration: InputDecoration(
               labelText: "Upated At",
               prefixIcon: const Icon(
-                Icons.edit, // Change to your desired icon
+                Icons.edit,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -503,13 +502,13 @@ class DetailProductState extends State<DetailProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),
@@ -530,7 +529,7 @@ class DetailProductState extends State<DetailProduct> {
             decoration: InputDecoration(
               labelText: "Issuer",
               prefixIcon: const Icon(
-                Icons.assignment_ind_rounded, // Change to your desired icon
+                Icons.assignment_ind_rounded,
               ),
               focusColor: Colors.amber,
               prefixIconColor: Colors.grey.shade700,
@@ -540,13 +539,13 @@ class DetailProductState extends State<DetailProduct> {
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(100.0), // Set border radius
+                borderRadius: BorderRadius.circular(100.0),
                 borderSide: const BorderSide(
-                  color: Colors.amber, // Set border color
+                  color: Colors.amber,
                 ),
               ),
             ),

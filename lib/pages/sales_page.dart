@@ -186,8 +186,7 @@ class _SalesPageState extends State<SalesPage> {
                               ),
                             ),
                           ),
-                          const SizedBox(
-                              width: 10), // Spacer antara TextField dan Button
+                          const SizedBox(width: 10),
                           SizedBox(
                             height: 40,
                             child: DropdownButton<String>(
